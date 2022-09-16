@@ -1,8 +1,7 @@
 import React from 'react';
 import { GetStaticProps } from 'next';
-import Header from '@/components/Header';
-import Link from 'next/link';
 import { PostType } from '@/types/jsonPlaceholder';
+import DynamicPageIndex from '@/components/DynamicPageIndex';
 
 interface IsrIndexProps {
   posts: PostType[];
@@ -11,19 +10,11 @@ interface IsrIndexProps {
 
 const Index = ({ posts, buildAt }: IsrIndexProps) => {
   return (
-    <>
-      <Header />
-      <p>{`Build at: ${buildAt}`}</p>
-      <h1>Dynamic ISR</h1>
-      <h2>Posts</h2>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <Link href={`/dynamic-isr/${post.id}`}>{post.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </>
+    <DynamicPageIndex
+      posts={posts}
+      buildAt={buildAt}
+      parentSlug="dynamic-isr"
+    />
   );
 };
 

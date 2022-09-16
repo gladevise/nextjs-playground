@@ -1,12 +1,8 @@
 import React from 'react';
-import Header from '@/components/Header';
 import { GetServerSideProps } from 'next';
-import Head from 'next/head';
-import Link from 'next/link';
-import Comment from '@/components/Comment';
-
 import { CommentType, PostType } from '@/types/jsonPlaceholder';
 import { ParsedUrlQuery } from 'querystring';
+import DynamicPageDetails from '@/components/DynamicPageDetails';
 
 interface DynamicSsrProps {
   post?: PostType;
@@ -19,41 +15,12 @@ interface Params extends ParsedUrlQuery {
 
 const DynamicSSR = ({ post, comments, buildAt }: DynamicSsrProps) => {
   return (
-    <>
-      <Head>
-        <title>{post ? post.title : 'Comments'}</title>
-      </Head>
-      <Header />
-      <p>{`Build at: ${buildAt}`}</p>
-      <main>
-        {post && (
-          <>
-            <h1>{post.title}</h1>
-            <p>{post.body}</p>
-            <Link href={`/dynamic-ssr/${post.id}/comments`}>More comments</Link>
-          </>
-        )}
-        {comments && comments?.length > 0 && (
-          <>
-            <h2>Comments</h2>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1.25rem',
-              }}
-            >
-              {comments.map((comment) => (
-                <Comment key={comment.id} comment={comment} />
-              ))}
-            </div>
-            <Link href={`/dynamic-ssr/${comments[0].postId}/`}>
-              Back to post
-            </Link>
-          </>
-        )}
-      </main>
-    </>
+    <DynamicPageDetails
+      post={post}
+      comments={comments}
+      buildAt={buildAt}
+      parentSlug="dynamic-ssr"
+    />
   );
 };
 

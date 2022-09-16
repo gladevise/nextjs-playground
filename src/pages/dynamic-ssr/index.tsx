@@ -1,9 +1,7 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
-import Header from '@/components/Header';
-import Link from 'next/link';
-
 import { PostType } from '@/types/jsonPlaceholder';
+import DynamicPageIndex from '@/components/DynamicPageIndex';
 
 interface SsrIndexProps {
   posts: PostType[];
@@ -11,19 +9,11 @@ interface SsrIndexProps {
 }
 const Index = ({ posts, buildAt }: SsrIndexProps) => {
   return (
-    <>
-      <Header />
-      <p>{`Build at: ${buildAt}`}</p>
-      <h1>Dynamic SSR</h1>
-      <h2>Posts</h2>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <Link href={`/dynamic-ssr/${post.id}`}>{post.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </>
+    <DynamicPageIndex
+      posts={posts}
+      buildAt={buildAt}
+      parentSlug="dynamic-ssr"
+    />
   );
 };
 
