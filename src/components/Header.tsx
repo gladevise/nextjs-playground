@@ -11,7 +11,6 @@ const Header = () => (
     }}
   >
     <Link href="/">Home</Link>
-    <Link href="/about">About</Link>
     <Link href="/ssg">ssg</Link>
     <Link href="/isr">isr</Link>
     <Link href="/ssr">ssr</Link>
