@@ -1,20 +1,13 @@
 import React from 'react';
 import { GetStaticProps } from 'next';
-import Header from '@/components/Header';
+import StaticPage from '@/components/StaticPage';
 
 interface IsrProps {
-  isStatic: boolean;
-  now: string;
+  buildAt: string;
 }
 
-const ISR = ({ isStatic, now }: IsrProps) => {
-  return (
-    <>
-      <Header />
-      {isStatic ? <p>SSG working</p> : <p>SSG not works</p>}
-      <p>{`Build at: ${now}`}</p>
-    </>
-  );
+const ISR = ({ buildAt }: IsrProps) => {
+  return <StaticPage buildAt={buildAt} title="ISR Page" />;
 };
 
 export default ISR;
@@ -22,8 +15,7 @@ export default ISR;
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      isStatic: true,
-      now: new Date().toISOString(),
+      buildAt: new Date().toISOString(),
     },
     revalidate: 10,
   };

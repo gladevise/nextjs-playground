@@ -1,20 +1,13 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
-import Header from '@/components/Header';
+import StaticPage from '@/components/StaticPage';
 
 interface SsgProps {
-  isSsr: boolean;
-  now: string;
+  buildAt: string;
 }
 
-const SSR = ({ isSsr, now }: SsgProps) => {
-  return (
-    <>
-      <Header />
-      {isSsr ? <p>SSR working</p> : <p>SSR not works</p>}
-      <p>{`Build at: ${now}`}</p>
-    </>
-  );
+const SSR = ({ buildAt }: SsgProps) => {
+  return <StaticPage buildAt={buildAt} title="SSR Page" />;
 };
 
 export default SSR;
@@ -22,8 +15,7 @@ export default SSR;
 export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
-      isSsr: true,
-      now: new Date().toISOString(),
+      buildAt: new Date().toISOString(),
     },
   };
 };

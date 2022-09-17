@@ -1,20 +1,13 @@
 import React from 'react';
 import { GetStaticProps } from 'next';
-import Header from '@/components/Header';
+import StaticPage from '@/components/StaticPage';
 
 interface SsgProps {
-  isStatic: boolean;
-  now: string;
+  buildAt: string;
 }
 
-const SSG = ({ isStatic, now }: SsgProps) => {
-  return (
-    <>
-      <Header />
-      {isStatic ? <p>SSG working</p> : <p>SSG not works</p>}
-      <p>{`Build at: ${now}`}</p>
-    </>
-  );
+const SSG = ({ buildAt }: SsgProps) => {
+  return <StaticPage buildAt={buildAt} title="SSG Page" />;
 };
 
 export default SSG;
@@ -22,8 +15,7 @@ export default SSG;
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      isStatic: true,
-      now: new Date().toISOString(),
+      buildAt: new Date().toISOString(),
     },
   };
 };
