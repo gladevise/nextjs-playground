@@ -1,25 +1,42 @@
 import Link from 'next/link';
+import style from './Header.module.css';
 
 const Header = () => (
-  <header
-    style={{
-      display: 'flex',
-      gap: '1rem',
-      flexDirection: 'row',
-      alignContent: 'center',
-      alignItems: 'center',
-    }}
-  >
-    <Link href="/">Home</Link>
-    <Link href="/ssg">ssg</Link>
-    <Link href="/isr">isr</Link>
-    <Link href="/ssr">ssr</Link>
-    <Link href="/swr">swr</Link>
-    <Link href="/dynamic-ssg">dynamic-ssg</Link>
-    <Link href="/dynamic-isr">dynamic-isr</Link>
-    <Link href="/dynamic-ssr">dynamic-ssr</Link>
-    <Link href="/sound">sound</Link>
-    <Link href="/next-image">next-image</Link>
+  <header className={style.header}>
+    <nav className={style.nav}>
+      <ul className={style.container}>
+        <li className={style.item}>
+          <Link href="/">Home</Link>
+        </li>
+        <li className={style.item}>
+          <Link href="/ssg">ssg</Link>
+        </li>
+        <li className={style.item}>
+          <Link href="/isr">isr</Link>
+        </li>
+        <li className={style.item}>
+          <Link href="/ssr">ssr</Link>
+        </li>
+        <li className={style.item}>
+          <Link href="/swr">swr</Link>
+        </li>
+        <li className={style.item}>
+          <Link href="/dynamic-ssg">dynamic-ssg</Link>
+        </li>
+        <li className={style.item}>
+          <Link href="/dynamic-isr">dynamic-isr</Link>
+        </li>
+        <li className={style.item}>
+          <Link href="/dynamic-ssr">dynamic-ssr</Link>
+        </li>
+        <li className={style.item}>
+          <Link href="/sound">sound</Link>
+        </li>
+        <li className={style.item}>
+          <Link href="/next-image">next-image</Link>
+        </li>
+      </ul>
+    </nav>
   </header>
 );
 
