@@ -1,6 +1,6 @@
 {
-  "name": "Firebase Hosting test",
-  "short_name": "FH test",
+  "name": "Next.js PWA",
+  "short_name": "Next PWA",
   "theme_color": "#ffffff",
   "background_color": "#7cc5fe",
   "display": "fullscreen",

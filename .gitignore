@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# log files
+/log
+
+# next-pwa automatically generated files
+/public/sw.js
+/public/workbox-*.js
