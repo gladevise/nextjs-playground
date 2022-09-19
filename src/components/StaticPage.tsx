@@ -1,21 +1,17 @@
 import React from 'react';
-import Header from '@/components/Header';
 import Head from 'next/head';
+import Layout from './Layout';
 
-interface StaticPageProps {
-  buildAt: string;
-  title: string;
-}
-
-const StaticPage = ({ buildAt, title }: StaticPageProps) => {
+const StaticPage = ({ buildAt, title }: { buildAt: string; title: string }) => {
   return (
     <>
       <Head>
         <title>{title}</title>
       </Head>
-      <Header />
-      <h1>{title}</h1>
-      <p>{`Build at: ${buildAt}`}</p>
+      <Layout>
+        <h1>{title}</h1>
+        <p>{`Build at: ${buildAt}`}</p>
+      </Layout>
     </>
   );
 };

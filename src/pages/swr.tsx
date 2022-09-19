@@ -1,6 +1,6 @@
 import React from 'react';
 import useSWR from 'swr';
-import Header from '@/components/Header';
+import Layout from '@/components/Layout';
 
 interface AnimechanQuoteType {
   anime: string;
@@ -23,11 +23,12 @@ const SWR = () => {
 
   return (
     <>
-      <Header />
-      <div>SWR</div>
-      <div>{data?.anime}</div>
-      <div>{data?.character}</div>
-      <div>{data?.quote}</div>
+      <Layout>
+        <h1>SWR</h1>
+        <h2>{data?.anime}</h2>
+        <p>{data?.character}</p>
+        <p>{data?.quote}</p>
+      </Layout>
     </>
   );
 };

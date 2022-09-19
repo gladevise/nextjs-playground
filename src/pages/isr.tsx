@@ -2,11 +2,7 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 import StaticPage from '@/components/StaticPage';
 
-interface IsrProps {
-  buildAt: string;
-}
-
-const ISR = ({ buildAt }: IsrProps) => {
+const ISR = ({ buildAt }: { buildAt: string }) => {
   return <StaticPage buildAt={buildAt} title="ISR Page" />;
 };
 

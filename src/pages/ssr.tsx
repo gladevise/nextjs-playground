@@ -2,11 +2,7 @@ import React from 'react';
 import { GetServerSideProps } from 'next';
 import StaticPage from '@/components/StaticPage';
 
-interface SsgProps {
-  buildAt: string;
-}
-
-const SSR = ({ buildAt }: SsgProps) => {
+const SSR = ({ buildAt }: { buildAt: string }) => {
   return <StaticPage buildAt={buildAt} title="SSR Page" />;
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '@/components/Header';
+import Layout from '@/components/Layout';
 
 const play = () => {
   const audio = new Audio('/sounds/mixkit-achievement-bell-600.mp3');
@@ -9,9 +9,10 @@ const play = () => {
 const Sound = () => {
   return (
     <>
-      <Header />
-      <div>Sound</div>
-      <button onClick={play}>Play!</button>
+      <Layout>
+        <h1>Sound</h1>
+        <button onClick={play}>Play!</button>
+      </Layout>
     </>
   );
 };
